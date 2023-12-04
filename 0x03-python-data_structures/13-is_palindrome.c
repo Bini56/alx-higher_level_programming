@@ -1,9 +1,8 @@
-#!/usr/bin/python3
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 /**
- * is_palindrome - check for list is palindrome
+ * is_palindrome - checks for list is palindrome
  * @head: head of linked list
  * Return:  boolean
  */
@@ -39,5 +38,3 @@ int is_palindrome(listint_t **head)
 	}
 	return (1);
 }
-
-
