@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    to_remove = C, c
-    new_list =[ x for x in my_string if to_remove not in x]
-    print(new_list)
+    return(''.join(i for i in my_string if i not in 'Cc '))
+
