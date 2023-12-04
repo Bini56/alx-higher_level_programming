@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def max_integer(my_list=[]):
+def add_tuple(tuple_a=(), tuple_b=()):
     if len(my_list) == 0:
         return None
     max = my_list[0]
