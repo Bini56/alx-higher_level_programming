@@ -41,10 +41,3 @@ void print_python_bytes(PyObject *p)
 	printf("\n");
 }
 
-/**
- * print_python_list - Prints list information
- *
- * @p: Python Object
- * Return: no return
- */
-void print_python_list(PyObject *p)
