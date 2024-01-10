@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def matrix_bin(m_a, m_b):
+def matrix_mul(m_a, m_b):
     if not isinstance(m_a, list):
         raise TypeError('m_a must be a list')
     if False in [isinstance(listx, list) for listx in m_a]:
