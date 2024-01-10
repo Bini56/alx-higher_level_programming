@@ -1,40 +1,60 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include "lists.h"
-/**
- * is_palindrome - checks for list is palindrome
- * @head: head of linked list
- * Return:  boolean
- */
-int is_palindrome(listint_t **head)
-{
-	int len = 0, i = 0;
-	listint_t *tmp;
-	int Ns[10000];
 
-	tmp = *head;
-	if ((*head) == NULL)
-		return (1);
-	while (tmp != NULL)
-	{
-		len++;
-		tmp = tmp->next;
-	}
-	if (len == 1)
-		return (1);
-	tmp = *head;
-	while (tmp != NULL)
-	{
-		Ns[i] = tmp->n;
-		tmp = tmp->next;
-		i++;
-	}
-	for (i = 0; i <= len / 2; i++)
-	{
-		if (Ns[i] != Ns[len - i - 1])
-		{
-			return (0);
-		}
-	}
-	return (1);
+typedef struct listint_s {
+  int n;
+  struct listint_s *next;
+} listint_t;
+
+/**
+ * is_palindrome - checks if a singly linked list is a palindrome
+ *
+ * @head: pointer to the head of the singly linked list
+ * Return: 1 if the list is a palindrome, 0 otherwise
+ */
+int is_palindrome(listint_t **head) {
+  listint_t *slow = *head, *fast = *head;
+  listint_t *prev = NULL, *current = NULL;
+
+  // Find the middle node of the list
+  while (fast && fast->next) {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+
+  // If the list has an odd number of nodes, skip the middle node
+  if (slow->next) {
+    slow = slow->next;
+  }
+
+  // Reverse the second half of the list
+  current = slow;
+  while (current) {
+    prev = current->next;
+    current->next = *head;
+    *head = current;
+    current = prev;
+  }
+
+  // Check if the reversed list is identical to the original list
+  while (*head && slow) {
+    if ((*head)->n != slow->n) {
+      return 0;
+    }
+
+    *head = (*head)->next;
+    slow = slow->next;
+  }
+
+  // Restore the original list
+  current = *head;
+  *head = NULL;
+  while (current) {
+    prev = current->next;
+    current->next = *head;
+    *head = current;
+    current = prev;
+  }
+
+  return 1;
 }
+
