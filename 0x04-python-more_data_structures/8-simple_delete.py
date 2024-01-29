@@ -1,6 +1,6 @@
-#!/usr/bin/python3
-def simple_delete(a_dictionary, key=""):
-    if (a_dictionary):
-        if (a_dictionary.get(key)):
-            del a_dictionary[key]
-    return a_dictionary
+#!/usr/bin/env bash
+# The content of the current directory
+for i in *
+do
+    echo "$i" | cut -f 2- -d '-'
+done
