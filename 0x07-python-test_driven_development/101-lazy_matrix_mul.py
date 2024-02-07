@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-# 101-lazy_matrix_mul.py
-"""Defining a matrix multiplication function using NumPy."""
-import numpy as np
+"""Module to find the max integer in a list
+"""
 
 
-def lazy_matrix_mul(m_a, m_b):
-    """Return the multiplication of two matrices.
-    Args:
-        m_a (list of lists of ints/floats): The first matrix.
-        m_b (list of lists of ints/floats): The second matrix.
+def max_integer(list=[]):
+    """Function to find and return the max integer in a list of integers
+        If the list is empty, the function returns None
     """
-
-    return (np.matmul(m_a, m_b))
+    if len(list) == 0:
+        return None
+    result = list[0]
+    i = 1
+    while i < len(list):
+        if list[i] > result:
+            result = list[i]
+        i += 1
+    return result
