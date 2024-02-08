@@ -23,3 +23,10 @@ def size(self):
 
         self.width = value
         self.height = value
+            def update(self, *args, **kwargs):
+        """
+            assigns key/value argument to attributes
+            kwargs is skipped if args is not empty
+            Args:
+                *args -  variable number of no-keyword args
+                **kwargs - variable number of keyworded args
